@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermal Energy Transfer</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic styles to make it look nice */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #0044cc;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .quiz-section {
+            background-color: #e1e1e1;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Understanding Thermal Energy Transfer</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#conduction">Conduction</a></li>
+                <li><a href="#convection">Convection</a></li>
+                <li><a href="#radiation">Radiation</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home">
+            <h2>Introduction</h2>
+            <p>Thermal energy transfer occurs in three different ways: <strong>Conduction</strong>, <strong>Convection</strong>, and <strong>Radiation</strong>. Each of these methods plays an essential role in how heat moves through materials and across space.</p>
+            <p>Explore each method in detail to understand how they impact our daily lives, from weather patterns to the way we cook and stay warm.</p>
+        </section>
+
+        <!-- Conduction Section -->
+        <section id="conduction">
+            <h2>Conduction</h2>
+            <p>Conduction is the transfer of heat through direct contact between particles. It occurs in solids, especially metals, where particles are close together and can easily transfer energy to one another.</p>
+            <h3>Fun Fact:</h3>
+            <p>Did you know that metal is a much better conductor of heat than wood or plastic? That’s why metal pans heat up quickly, while wooden handles stay cool!</p>
+            <img src="https://via.placeholder.com/600x400?text=Conduction+Image" alt="Conduction Image">
+        </section>
+
+        <!-- Convection Section -->
+        <section id="convection">
+            <h2>Convection</h2>
+            <p>Convection is the transfer of heat through fluids (liquids or gases) where warmer areas of the fluid rise, and cooler areas sink, creating a circulation of heat.</p>
+            <h3>Fun Fact:</h3>
+            <p>Convection is responsible for the formation of wind. The warm air from the ground rises, and cooler air from above moves in to take its place.</p>
+            <img src="https://via.placeholder.com/600x400?text=Convection+Image" alt="Convection Image">
+        </section>
+
+        <!-- Radiation Section -->
+        <section id="radiation">
+            <h2>Radiation</h2>
+            <p>Radiation is the transfer of heat in the form of electromagnetic waves. Unlike conduction and convection, radiation doesn’t need a medium and can even occur in a vacuum (like space).</p>
+            <h3>Fun Fact:</h3>
+            <p>The warmth you feel from the sun is radiation, which travels through the vacuum of space and reaches Earth!</p>
+            <img src="https://via.placeholder.com/600x400?text=Radiation+Image" alt="Radiation Image">
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="quiz-section">
+            <h2>Test Your Knowledge</h2>
+            <form id="quizForm">
+                <p><strong>1. Which method of heat transfer occurs when heat moves through a solid material?</strong></p>
+                <label><input type="radio" name="q1" value="wrong"> Convection</label><br>
+                <label><input type="radio" name="q1" value="correct"> Conduction</label><br>
+                <label><input type="radio" name="q1" value="wrong"> Radiation</label><br>
+
+                <p><strong>2. What is the primary cause of wind?</strong></p>
+                <label><input type="radio" name="q2" value="wrong"> Conduction</label><br>
+                <label><input type="radio" name="q2" value="correct"> Convection</label><br>
+                <label><input type="radio" name="q2" value="wrong"> Radiation</label><br>
+
+                <p><strong>3. How does heat from the sun reach the Earth?</strong></p>
+                <label><input type="radio" name="q3" value="wrong"> Through Conduction</label><br>
+                <label><input type="radio" name="q3" value="wrong"> Through Convection</label><br>
+                <label><input type="radio" name="q3" value="correct"> Through Radiation</label><br>
+
+                <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+            </form>
+
+            <div id="quizResult" style="margin-top: 20px;"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Thermal Energy Transfer. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function submitQuiz() {
+            const quizForm = document.getElementById('quizForm');
+            let correctAnswers = 0;
+
+            // Check answers
+            if (quizForm.q1.value === 'correct') correctAnswers++;
+            if (quizForm.q2.value === 'correct') correctAnswers++;
+            if (quizForm.q3.value === 'correct') correctAnswers++;
+
+            // Show result
+            const result = document.getElementById('quizResult');
+            result.innerHTML = `<h3>You got ${correctAnswers} out of 3 correct!</h3>`;
+        }
+    </script>
+</body>
+</html>
