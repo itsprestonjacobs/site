@@ -6,68 +6,151 @@
     <title>Thermal Energy Transfer</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Basic styles to make it look nice */
-        body {
-            font-family: Arial, sans-serif;
+        /* Basic reset and general styles */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            padding-bottom: 50px; /* Prevent content overlap with footer */
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            padding-bottom: 50px;
+            transition: background-color 0.5s ease;
+        }
+
         header {
             background-color: #0044cc;
             color: white;
-            padding: 15px 0;
+            padding: 20px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-50px);
+            opacity: 0;
+            animation: slideIn 1s forwards 0.5s;
         }
+
+        @keyframes slideIn {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         nav ul {
             list-style-type: none;
             padding: 0;
         }
+
         nav ul li {
             display: inline;
-            margin: 0 10px;
+            margin: 0 15px;
         }
+
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
         }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
         section {
-            padding: 20px;
-            margin: 20px;
+            margin: 20px auto;
+            padding: 30px;
             background-color: white;
-            border-radius: 8px;
+            border-radius: 10px;
+            max-width: 900px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(30px);
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
         }
+
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        section img:hover {
+            transform: scale(1.05);
+        }
+
         footer {
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 15px;
             position: relative;
             bottom: 0;
             width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeInUp 1s forwards 1.5s;
         }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+
         .quiz-section {
             background-color: #e1e1e1;
-            padding: 20px;
+            padding: 30px;
             border-radius: 8px;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
         }
+
+        .quiz-section button {
+            background-color: #0044cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .quiz-section button:hover {
+            background-color: #0033a0;
+        }
+
         #quizResult {
             margin-top: 20px;
-            padding: 10px;
+            padding: 15px;
             background-color: #fff;
-            border-radius: 8px;
-            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 100%;
             text-align: center;
         }
+
+        /* Smooth scroll effect */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Add hover effect for quiz radio buttons */
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input[type="radio"]:hover {
+            transform: scale(1.2);
+            transition: transform 0.2s ease;
+        }
+
     </style>
 </head>
 <body>
@@ -142,7 +225,7 @@
                 <button type="button" onclick="submitQuiz()">Submit Quiz</button>
             </form>
 
-            <div id="quizResult" style="margin-top: 20px;"></div>
+            <div id="quizResult"></div>
         </section>
 
     </main>
